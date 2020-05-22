@@ -1,6 +1,6 @@
 import os
 
-path = r"D:\Proj\Bukvarenok\Bukvodom\Assets\Resources\Audio\DinnerScene"
+path = r"E:\Viktor\Proj\ViktoriaPlus\cubercat\cybercat\Assets\Resources\Sprites\ui\Helmet\bg"
 
 #i = 1
 
@@ -19,8 +19,10 @@ for file_name in os.listdir(path):
 ##    	continue
 
     #переименовать файлы c вхождением:
-    if base_name[:5] == 'house':
-      new_abs_file_name = os.path.join(path, 'House' + base_name[5:] + ext)
+    renamePart = 'planeSize'
+    renameTo = 'bg'
+    if base_name[:len(renamePart)] == renamePart:
+      new_abs_file_name = os.path.join(path, renameTo + base_name[len(renamePart):] + ext)
       os.rename(abs_file_name, new_abs_file_name)
 
     #удалить все файлв формата:
