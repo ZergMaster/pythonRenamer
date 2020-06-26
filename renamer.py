@@ -1,7 +1,26 @@
 import os
 
-path = r"E:\Viktor\Proj\ViktoriaPlus\cubercat\cybercat\Assets\Resources\Sprites\ui\Helmet\arts\noActive"
+path = r"D:\Proj\ViktoriaPlus\cubercat\cybercat\Assets\Resources\Sprites\ui\Helmet\Icons\big"
     
+	
+#добавить в нечало имени файлов строку
+def addStringToFronName(addit):
+    for file_name in os.listdir(path):
+	    # Имя файла и его формат
+        base_name, ext = os.path.splitext(file_name)
+        print("hi "+str(file_name))
+		
+		# Полный путь к текущему файлу
+        abs_file_name = os.path.join(path, file_name)
+
+        new_abs_file_name = os.path.join(path, addit + base_name)
+		
+        print('old name = '+base_name)
+        print('new name = '+new_abs_file_name)
+
+        os.rename(abs_file_name, new_abs_file_name)
+
+
 #переименовать файлы c вхождением:
 def renameFilesFromTo(renamePart, renameTo):
     for file_name in os.listdir(path):
@@ -86,13 +105,12 @@ def addFormat(f):
         abs_file_name = os.path.join(path, file_name)
         
         if ext == '':
-        new_abs_file_name = os.path.join(path, base_name + f)
-        os.rename(abs_file_name, new_abs_file_name)
-
+            new_abs_file_name = os.path.join(path, base_name + f)
+            os.rename(abs_file_name, new_abs_file_name)
 
     
-
+##addStringToFronName('Helmet')
 ##changeNumeration()
 ##renameFilesFromTo('No_act_helmet', 'Helmet')
 ##deleteFilesFormats(['.meta', '.mp3'])
-##addFormat('.mp3')
+##addFormat('.png')
